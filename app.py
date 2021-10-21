@@ -17,7 +17,7 @@ st.set_page_config(layout="wide")
 
 def page_setup() -> (SparkSession, DataFrame):
     with st.spinner('Setting up Spark, please wait for it...'):
-        hadoop_deps = ','.join(map(lambda a: 'org.apache.hadoop:hadoop-' + a + ':3.2.2', ['common', 'client', 'aws']))
+        hadoop_deps = ','.join(map(lambda a: 'org.apache.hadoop:hadoop-' + a + ':3.2.0', ['common', 'client', 'aws']))
         deps = 'io.delta:delta-core_2.12:0.8.0,com.amazonaws:aws-java-sdk:1.12.20,' + hadoop_deps
         spark_session = (SparkSession.builder
                          .master("local[*]")
